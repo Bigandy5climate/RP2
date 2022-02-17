@@ -5,7 +5,7 @@
 ;remove requirements that are not needed
 (:requirements :strips :fluents :durative-actions :timed-initial-literals :typing :conditional-effects :negative-preconditions :duration-inequalities :equality)
 
-(:types ;todo: enumerate types and their hierarchy here, e.g. car truck bus - vehicle
+(:types factory
 )
 
        
@@ -31,13 +31,16 @@
 load
     :parameters (?box ?location)
     :precondition (and
-    (not (=(maxStorage ?train)(storage ?train)))
-    (onOrIn train ?location))
+    not=(maxStorage ?location storage ?location)
+    (onOrIn train ?location)
+    )
     :effect (and 
     (onOrIn ?box train)
     (not (onOrIn ?box ?location))
     (decrease(storage ?location) 1)
     (assign (trainLocation) ?location)
+    when (= trainLocation factory (ready ?box))
+
 )
 move
     :parameters (?l1 ?l2)
@@ -48,9 +51,8 @@ move
 unload
     :parameters (?box ?location)
     :precondition and
-    =trainLocation(?location)
-    not(=(maxStorage(?location)storage(?location))
+    =(trainLocation ?location)
+    not(=(maxStorage ?location storage?location))
     :effect and
-    when (trainLocation 
     ) 
 )

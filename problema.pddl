@@ -1,6 +1,6 @@
 (define (problem problem_name) (:domain domain_name)
 (:objects
-port box1 box2 box3 box4 box5 box6 box7 box8 wh p1 p2
+port box1 box2 box3 box4 box5 box6 box7 box8 wh p1 - factory p2 - factory
 )
 
 (:init

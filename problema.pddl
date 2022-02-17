@@ -23,7 +23,7 @@ port box1 box2 box3 box4 box5 box6 box7 box8 wh p1 - factory p2 - factory
 )
 
 (:goal (and
-    ;todo: put the goal condition here
+    (gone box1) (gone box2) (gone box3) (gone box4) (gone box5) (gone box6) (gone box7) (gone box8)
 ))
 
 ;un-comment the following line if metric is needed
